@@ -1,0 +1,329 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <title>Enter Case Data</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		
+		<link rel="stylesheet" href="datepicker/css/bootstrap.css">
+		<link rel="stylesheet" href="datepicker/css/datepicker.css">
+		<script src="datepicker/js/main.js"> </script>
+		<script src="datepicker/js/bootstrap-datepicker.js"> </script>
+		<script>
+		 $(function(){
+		  $('.datepicker').datepicker().on('changeDate',function(e){$(this).datepicker('hide'); });
+		 });
+		</script>
+		
+		<script>
+		$(function(){
+		$("input,select,textarea").attr("autocomplete","off");
+		});
+		</script>
+		
+				<script>
+		//Limiting input to integers only
+function numbersonly(e){
+    var unicode=e.charCode? e.charCode : e.keyCode
+    if (unicode!=8 & unicode!=46 & unicode!=37 & unicode!=39 ){ //if the key isn't the backspace,delete,left and right arrow keys (which we should allow)
+        if (unicode<48||unicode>57) //if not a number
+            return false //disable key press
+    }
+}
+		</script>
+		
+		
+        <style>
+        
+				 td,th{
+					dfont-size: 20px;
+					font-family:"Times New Roman", Times, serif;
+				 }
+				 /*input{
+				 	width:800px;
+					border:1px solid ;
+					padding:10px;
+					font-size:25px;
+					border-radius:5px;
+					margin-bottom:10px
+				 }*/
+				 body{
+				 	jbackground-color:#FFCCFF;
+					background-image:url(images/hd.jpg);
+				 border-style:double;}
+				 table{
+				 margin-left:1%;
+				 height:80%;
+				 width:100%;
+				 font-weight:bold;
+				 font:"Times New Roman", Times, serif;
+				 color:dark;}
+				form{
+				margin-left:27%;
+				margin-top:3%;
+				padding:2%;
+				border:groove;
+				width:50%;
+				font-size:20px;
+				
+					}				
+				#select{
+				width:100%;
+				margin:5px;
+				border-style:outset;
+				font-weight:100;
+				background-color:#FFFFCC;}
+				#select:active {
+    			background-color: yellow;
+				}
+				#select:hover {
+    			color: #2ABF55;
+				border:none;
+				background-color: white;
+					}
+				
+				#in{
+				width:100%;
+				margin:5px;
+				border-style:inset;
+				font-weight:100;
+				background-color:aliceblue;
+				}
+				#in:active {
+    			background-color: white;
+				
+				}
+				#in:hover {
+    			color: #2ABF55;
+				border:none;
+				background-color: white;
+					}
+				
+				#submit{
+				float:right;
+				border-style:groove;
+				border-radius:5px;
+				margin:5px;
+				background-color:aliceblue;
+				}
+				#submit:hover {
+    			color: red;
+				border:groove;
+					}
+				#submit:active {
+    			background-color: yellow;
+				}
+			
+				
+				ul,li{
+				font-family:"Times New Roman", Times, serif;
+				font:xx-large;
+				font-weight:bold;}
+				
+				#main{
+				height:500px;
+				min-height:750px;
+				max-height:600px;}
+				
+				#footer{
+				color:#550000;
+				font:"Times New Roman", Times, serif;
+				font-size:20px;
+				border:groove;
+				text-align:center;}
+				h1{
+				text-align:center;
+				color:#7F1F00;}
+        </style>
+		
+    </head>
+    <body>
+	<div id="main">
+    	<ul class="nav navbar-inverse nav-tabs">
+<li role="presentation" style="background-color:#FFFF99" ><a href="index.html"> <font color="#000000">CASE ENTRY </font></a></li>
+   <li role="presentation" style="float:right;"><a href="view.php"> <font color="#FFFFFF">VIEW</font> </a></li>
+</ul> 
+
+<h1>MONTHLY CASE RETURNS</h1>
+    
+	  <form action="insert.php" method="post" > 
+                  <table><tr><td>Registry:</td><td><select id="select" name="reg" required>
+                  	<option value=''>Select Registry</option>
+                  	 		<option value="CM CHILDREN">CM's Children</option>
+  							<option value="CM CIVIL">CM's Civil</option>
+  							<option value="CM CRIMINAL">CM's Criminal</option>
+  							<option value="CM PROBATE">CM's Probate</option>
+  							<option value="CM KADHI">CM's Kadhi</option>
+							<option value="HC PROBATE">HC Probate</option>
+							<option value="HC CIVIL">HC Civil</option>
+							<option value="HC CRIMINAL">HC Criminal</option>
+							<option value="ELC">ELC</option>
+							<option value="ELRC">ELRC</option>
+							
+							
+				</select></td></tr> 
+				<tr><td>Case:</td><td><select id="select" name="case" required>
+                  	<option value=''>Select Case</option>
+                  	 		<option value="MISC">Misc</option>
+  							<option value="DIVORCE">Divorce</option>
+  							<option value="S.O.">Sexual Offences</option>
+  							<option value="TRAFFIC">Traffic</option>
+							<option value="CHILDREN">Children</option>
+							<option value="KADHI">Kadhi</option>
+							<option value="CIVIL">Civil</option>
+  							<option value="CRIMINAL">Criminal</option>
+							<option value="SUCC">Succ</option>
+							<option value="ADOPT">Adoption</option>
+							<option value="P&A">P & A</option>
+							<option value="ELC">ELC</option>
+							<option value="ELRC">ELRC</option>
+				</select></td></tr> 
+				 <tr><td>Year:</td><td><select id="select" name="year" required>
+				 
+  <script>
+  var myDate = new Date();
+  var year = myDate.getFullYear();
+  for(var i = 2015; i < year+1; i++){
+	  document.write('<option value="'+i+'">'+i+'</option>');
+  }
+  </script>
+</select></td></tr>
+ <tr><td>Month:</td> 
+ <td><select id="select" onchange="show_month()" name="month" required>
+    <option value=''>Select Month</option>
+     <option selected value='January'>January</option>
+    <option value='February'>February</option>
+    <option value='March'>March</option>
+    <option value='April'>April</option>
+    <option value='May'>May</option>
+    <option value='June'>June</option>
+    <option value='July'>July</option>
+    <option value='August'>August</option>
+    <option value='September'>September</option>
+    <option value='October'>October</option>
+    <option value='November'>November</option>
+    <option value='December'>December</option>
+    </select> </td></tr> 
+					<tr>
+                        <td>
+                            B/Fwd Pending:
+                        </td>
+                        <td>
+                            <input type="text" onKeyPress="return numbersonly(event)" placeholder="B/Fwd pending"id="in" name="fwd" required/>
+                        </td
+                    ></tr>
+                    <tr>
+                        <td>
+                            Filed:
+                        </td>
+                       <td>
+                            <input type="text" onKeyPress="return numbersonly(event)" placeholder="Cases Filed"id="in"name="filed" required/>
+                        </td
+                    ></tr>
+                    <tr
+                    <tr>
+                        <td>
+                            Disposed :
+                        </td>
+                        <td>
+                            <input type="text" onKeyPress="return numbersonly(event)" placeholder="Cases Disposed"id="in" name="dis" required/>
+                        </td
+                    ></tr>
+					
+					
+					
+					  <tr>
+                        <td>
+                            Name:
+                        </td>
+                        <td>
+                           	<select id="select" name="name" required>
+    <option value=''>Select Name</option>
+     <option value='Kepha Omagwa'>Kepha Omagwa</option>
+    <option value='Mary Muturi'>Mary Muturi</option>
+    <option value='Rosemary Nyamweru'>Rosemary Nyamweru</option>
+    <option value='Patricia Ndiangui'>Patricia Ndiangui</option>
+    <option value='John Mahinda'>John Mahinda</option>
+    <option value='Ruth Kanogo'>Ruth Kanogo</option>
+    <option value='Mary Njoroge'>Mary Njoroge</option>
+    <option value='Ann Wambugu'>Ann Wambugu</option>
+    <option value='Naomi Kariuki'>Naomi Kariuki</option>
+	 <option value='Beatrice Mundia'>Beatrice Mundia</option>
+	 <option value='Abdullah O Bidu'>Abdullah O Bidu</option>
+	  <option value='Mary N. Wambugu'>Mary N. Wambugu</option>
+    </select>
+                        </td></tr>
+					  <tr>
+                        <td>
+                            PJ No:
+                        </td>
+                        <td>
+                            <select id="select" name="pj">
+    <option value=''>Select PJ No.</option>
+     <option value='46569'>46569</option>
+    <option value='55356'>55356</option>
+    <option value='17764'>17764</option>
+    <option value='7329'>7329</option>
+    <option value='7866'>7866</option>
+    <option value='9818'>9818</option>
+    <option value='12405'>12405</option>
+    <option value='26129'>26129</option>
+    <option value='5597'>5597</option>
+	<option value='55356'>55356</option>
+	<option value='9559'>9559</option>
+	<option value='28210'>28210</option>
+	<option value='14805'>14805</option>
+    </select>
+    </td></tr>                
+					  <tr>
+                        <td>
+                            Designation :
+                        </td>
+                        <td>
+                           <select id="select" name="desig" required>
+    <option value=''>Select Designation</option>
+     <option value='S.C.O'>S.C.O</option>
+    <option value='E.A'>E.A</Option>
+    <option value='C.A'>C.A</option>
+    <option value='H.C.O'>H.C.O</option></select>
+                        </td
+                    ></tr>
+					  <tr>
+                        <td>
+                            Date :
+                        </td>
+                        <td>
+						<input class="datepicker" type="text" placeholder="dd/mm/yyyy"id="in" name="date" required/>
+                        </td
+                    ></tr>
+					  <tr>
+                        <td>
+                        
+                        </td>
+                        <td>
+                <input type="submit" size="10" value="Submit"id="submit" />       <input type="reset" size="10" value="Clear"id="submit" />     
+                        </td
+                    ></tr>
+        </table></form>
+        <script src="jquery-2.2.0.min.js">
+        </script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="js/bootstrap.min.js">
+        </script>
+		
+		
+		
+</div>
+<div id="footer">
+This site was developed by Makokha Barasa Fredrick,Steve Gumba Wachiuri and Janet Kadenyi for Nyeri Law Courts.
+</div>
+
+		
+    </body>
+	
+	
+</html>
+
